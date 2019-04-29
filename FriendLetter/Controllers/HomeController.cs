@@ -14,6 +14,8 @@ namespace FriendLetter.Controllers
       LetterVariable myLetterVariable = new LetterVariable();
       myLetterVariable.SetRecipient("Lina");
       myLetterVariable.SetSender("John");
+      myLetterVariable.SetLocation("Greenland");
+      myLetterVariable.SetSouvenir("T-shirt");
       return View(myLetterVariable);
      }
     [Route("/journal")]
@@ -21,11 +23,13 @@ namespace FriendLetter.Controllers
     [Route("/form")]
     public ActionResult Form() { return View(); }
     [Route("/postcard")]
-    public ActionResult Postcard(string recipient, string sender)
+    public ActionResult Postcard(string recipient, string sender, string location, string souvenir)
     {
       LetterVariable myLetterVariable = new LetterVariable();
       myLetterVariable.SetRecipient(recipient);
       myLetterVariable.SetSender(sender);
+      myLetterVariable.SetLocation(location);
+      myLetterVariable.SetSouvenir(souvenir);
       return View(myLetterVariable);
     }
   }
